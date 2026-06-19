@@ -1,0 +1,64 @@
+//Program 1
+//GFG
+//maximum sum subarray of size K
+class Solution {
+  public:
+    int maxSubarraySum(vector<int>& arr, int k) {
+        // code here
+        int n=arr.size();
+        int sum=0;
+        for(int i=0;i<k;i++){
+            sum= sum+arr[i];
+        }
+        int maxSum=sum;
+        for(int i=k;i<n;i++){
+            sum=sumarr[i]-arr[i-k];
+            maxSum=max(sum,maxSum);
+        }
+        return maxSum;
+    }
+};
+
+
+
+
+
+
+
+
+//Program 2
+//LEETCODE 238
+// product pf array except self
+class Solution {
+public:
+    vector<int> productExceptSelf(vector<int>& nums) {
+        int n=nums.size();
+        vector<int>prefix(n);
+        vector<int>suffix(n);
+        vector<int>ans(n);
+        prefix[0]=1;
+        suffix[n-1]=1;
+        for(int i=1;i<n;i++){
+            prefix[i]=prefix[i-1]*nums[i-1];
+        }
+        for(int i=n-2;i>=0;i--){
+            suffix[i]=suffix[i+1]*nums[i+1];
+        }
+        for(int i=0;i<n;i++){
+            ans[i]=prefix[i]*suffix[i];
+        }
+        return ans;
+    }
+        
+};
+
+
+
+
+
+
+
+
+
+//Program 3
+//LEETCODE
