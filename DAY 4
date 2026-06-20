@@ -1,0 +1,122 @@
+//Program 1
+//LEETCODE 3612
+//process string with special operation I
+class Solution {
+public:
+    string processStr(string s) {
+       string result;
+       for(char ch: s){
+       if(islower(ch)){
+           result.push_back(ch);
+       }else if(ch=='*'){
+        if(!result.empty()){
+            result.pop_back();
+        }
+       }else if(ch=='#'){
+        result=result+result;
+       }
+       else if(ch=='%'){
+        reverse(result.begin(),result.end());
+       }
+       } 
+       return result;
+    }
+};
+
+
+
+
+
+
+//Program 2
+// find mid in a aprticular string using binary search
+#include <iostream>
+#include<vector>
+using namespace std;
+
+int binarySearch(vector<int>&arr, int target){
+    int low=0;
+    int high=arr.size() -1;
+    while(low<=high){
+        int mid=low+(high-low)/2;
+        if(arr[mid]==target){
+            return mid;
+        }
+        if(arr[mid]>target){
+            high=mid-1;
+        }else{
+            low=mid+1;
+        }
+    }
+    return -1;
+}
+int main()
+{
+    vector<int> arr={10,20,30,40,50,60};
+    int target=50;
+    int result= binarySearch(arr,target);
+    if(result==-1){
+        cout<<"element not found";
+    }else{
+        cout<<"element found at index..."<<result;
+    }
+
+    return 0;
+}
+
+
+
+
+
+
+
+
+//Program 3
+//ceil in a sorted array of gfg
+class Solution {
+  public:
+    int findCeil(vector<int>& arr, int x) {
+        // code here
+        int low=0;
+        int high=arr.size()-1;
+        int ans=-1;
+        while(low<= high){
+            int mid=low+(high-low)/2;
+            if(arr[mid]>=x){
+                ans=mid;
+                high=mid-1;
+            }else{
+                low=mid+1;
+            }
+        }
+        return ans;
+    }
+};
+
+
+
+
+
+
+
+
+
+//Program 4
+//LEETCODE 162
+//find peak element
+class Solution {
+public:
+    int findPeakElement(vector<int>& nums) {
+      int left=0;
+      int right=nums.size()-1;
+      while(left<right){
+        int mid=left+(right-left)/2;
+        if(nums[mid]>nums[mid+1]){
+            right=mid;
+        }else{
+            left=mid+1;
+        }
+      }  
+      return left;
+    }
+};
