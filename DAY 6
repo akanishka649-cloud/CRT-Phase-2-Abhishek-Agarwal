@@ -1,0 +1,111 @@
+//Program 1
+//LEETCODE 876
+//find middle of the linkedlist
+class Solution {
+public:
+    ListNode* middleNode(ListNode* head) {
+       ListNode* slow=head;
+        ListNode* fast=head;
+        while(fast!=nullptr &&fast->next!=nullptr){
+            slow=slow->next;
+            fast=fast->next->next;
+        }
+        return slow;
+        
+    }
+};
+
+
+
+
+
+
+
+//Program 2
+//LEETCODE 141
+//LINKEDLIST CYCLE
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+        ListNode *slow=head;
+        ListNode *fast=head;
+        while(fast!=nullptr && fast->next!=nullptr){
+            slow=slow->next;
+            fast=fast->next->next;
+            if(slow==fast){
+                return true;
+            }
+        }
+        return false;
+    }
+};
+
+
+
+
+
+
+
+
+
+
+//Program 3
+//LEETCODE 142
+// LINKEDLIST CYCLE 2
+class Solution {
+public:
+    ListNode *detectCycle(ListNode *head) {
+       ListNode* slow = head;
+       ListNode* fast = head;
+       while (fast != nullptr && fast -> next != nullptr) {
+            slow = slow->next;
+            fast = fast->next->next;
+            if (slow == fast) {
+                slow =  head;
+
+                while (slow != fast){
+                    fast = fast -> next;
+                    slow = slow -> next;
+                }
+                return slow;
+            }
+        }
+        return nullptr;
+            
+    }
+};
+
+
+
+
+
+
+
+
+//Program 4
+//LEETCODE 160
+//intersection of two linkedlist
+class Solution {
+public:
+    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+        ListNode *A = headA;
+        ListNode *B = headB;
+        while(A!=B){
+            A=(A==nullptr)?headB:A->next;
+            B=(B==nullptr)?headA:B->next;
+        }
+        return A;
+    }
+};
+
+
+
+
+
+
+
+
+
+//Program 5
+//LEETCODE 2095
+//DELETE THE MIDDLE NODE OF A LINKEDLIST
