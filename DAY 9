@@ -1,0 +1,57 @@
+//Program 1
+//LEETCODE 144
+//binary tree preorder traversal
+class Solution {
+public:
+   void traversal(TreeNode* root, vector<int>&ans){
+    //BASE CONDITION
+    if(root==nullptr){
+        return;
+    }
+    //LOGIC
+        ans.push_back(root->val);
+        traversal(root->left,ans);
+        traversal(root->right,ans);
+   }
+    vector<int> preorderTraversal(TreeNode* root) {
+        
+        vector<int>ans;
+        traversal(root,ans);
+        return ans;
+        
+    }
+};
+
+
+
+
+
+
+
+
+
+
+//Program 2
+//LEETCODE 94
+//binary tree inorder traversal
+
+class Solution {
+public:
+   void traversal(TreeNode* root, vector<int>&ans){
+    //BASE CONDITION
+    if(root==nullptr){
+        return;
+    }
+    //LOGIC
+        traversal(root->left,ans);
+        ans.push_back(root->val);
+        traversal(root->right,ans);
+   }
+    vector<int> inorderTraversal(TreeNode* root) {
+        
+        vector<int>ans;
+        traversal(root,ans);
+        return ans;
+        
+    }
+};
