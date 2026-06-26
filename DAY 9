@@ -55,3 +55,62 @@ public:
         
     }
 };
+
+
+
+
+
+
+
+
+
+//Program 3
+//LEETCODE 104
+//maximum depth of binary tree
+class Solution {
+public:
+        int maxDepth(TreeNode* root) {
+          // base condition
+        if(root == nullptr) {
+            return 0;
+        }
+        //logic
+        int leftHeight = maxDepth(root->left);
+        int rightHeight = maxDepth(root->right);
+          
+        return max(leftHeight, rightHeight) + 1 ;
+
+    }
+};
+
+
+
+
+
+
+
+
+
+
+//Program 4
+//LEETCODE 145
+//binary tree traversal in post order
+class Solution {
+public:
+ void traversal(TreeNode* root, vector<int>&ans){
+    //BASE CONDITION
+    if(root==nullptr){
+        return;
+    }
+    //LOGIC
+        traversal(root->left,ans);
+        traversal(root->right,ans);
+        ans.push_back(root->val);
+   }
+    vector<int> postorderTraversal(TreeNode* root) {
+        vector<int>ans;
+        traversal(root,ans);
+        return ans;
+        
+    }
+};
