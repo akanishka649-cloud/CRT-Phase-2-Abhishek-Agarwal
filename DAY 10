@@ -97,3 +97,20 @@ bool traversal(TreeNode*left, TreeNode* right){
 //Program 4
 //LEETCODE 543
 //diameter of binary tree
+class Solution {
+public:
+int ans = 0;
+    int traversal (TreeNode* root){
+        if (root ==  nullptr) {
+            return 0;
+        }
+        int lh = traversal (root -> left);
+        int rh = traversal (root -> right);
+        ans = max(ans,lh + rh);
+        return max(lh,rh) + 1;
+    }
+    int diameterOfBinaryTree(TreeNode* root) {
+        traversal (root);
+        return ans;
+    }
+};
