@@ -1,6 +1,6 @@
 //Program 1
 //LEETCODE 111
-//maximum depth of binary tree
+//minimum depth of binary tree
 class Solution {
 public:
     int minDepth(TreeNode* root) {
