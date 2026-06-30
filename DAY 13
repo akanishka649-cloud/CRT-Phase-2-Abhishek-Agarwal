@@ -30,3 +30,33 @@ class Solution {
         return ans;
     }
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Program 2
+//GFG
+//Consecutive 1's Not Allowed
+class Solution {
+  public:
+    int countStrings(int n) {
+        // code here
+        if (n==1){
+            return 2;
+        }
+        if (n==2){
+            return 3;
+        }
+        return countStrings (n-1) + countStrings(n-2);
+    }
+};
