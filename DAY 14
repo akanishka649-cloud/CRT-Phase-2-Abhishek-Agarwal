@@ -1,0 +1,61 @@
+//Program 1
+//LEETCODE 509
+//Fibonacci Series
+class Solution {
+public:
+    int fib(int n) {
+     if(n==0)return 0;
+     if(n==1)return 1;
+     if(n==2)return 1;
+     return fib(n-1)+fib(n-2);  
+    }
+};
+
+
+
+
+
+
+
+
+
+
+//Program 2
+//LEETCODE 198
+//House Robber
+class Solution {
+public:
+int robFrom(vector<int>&nums, int index){
+    //base condition
+    if(index>=nums.size()){
+        return 0;
+    }
+
+    //logic
+    int chori=nums[index]+ robFrom (nums,index+2);
+    int notChoriKariMaineVhaPar =robFrom(nums,index+1);
+    return max(chori,notChoriKariMaineVhaPar);
+}
+   int rob(vector<int>& nums){
+    return robFrom(nums,0);
+   }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Program 3
+//LEETCODE 70
+//Climbing Stairs
